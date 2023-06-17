@@ -1,0 +1,42 @@
+<h1>Add a Pokemon to the Database</h1>
+
+{{!-- when you are talking about the name of your model views and controllers --}}
+{{!-- thats called a resource --}}
+{{!-- so pokemon is our resource in this example --}}
+<form action="/pokemon/create" method="POST" enctype="multipart/form-data">
+
+<div>
+    Name: 
+    <input type="text" name="pokemonName">
+</div>
+
+<div>
+    Type: 
+    <input type="text" name="pokemonType">
+</div>
+
+<div>
+    Image: 
+    <input type="file" name="img">
+</div>
+
+<div>
+    Evolves?:
+    <input id="evolves" type="radio" value=true name="evolves">
+    <label for="evolves">Yes</label>
+    <input id="no-evolve" type="radio" value=false name="evolves">
+    <label for="no-evolve">No</label>
+</div>
+
+<div>
+    Moves: 
+    <input type="text" name="moves">
+    <input type="text" name="moves">
+</div>
+
+
+
+<button>Save</button>
+
+
+</form>

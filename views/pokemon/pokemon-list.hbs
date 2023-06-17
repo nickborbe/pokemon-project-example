@@ -1,0 +1,18 @@
+<h1>Pokemon</h1>
+
+
+{{#each pokemon}}
+    <hr>
+    <div>
+
+        <a href="/pokemon/{{this._id}}">
+        <h2>
+            <li>
+                {{this.name}}
+            </li>
+        </h2>
+        </a>
+            <h5>Type: {{this.type}}</h5>
+            </div>
+    <hr>
+{{/each}}

@@ -1,0 +1,58 @@
+<h1>Edit This Pokemon</h1>
+
+
+<h1>Add a Pokemon to the Database</h1>
+
+
+<form action="/pokemon/{{thePokemon._id}}/update" method="POST" enctype="multipart/form-data">
+
+<div>
+    Name: 
+    <input type="text" name="pokemonName" value="{{thePokemon.name}}">
+</div>
+
+<div>
+    Type: 
+    <input type="text" name="pokemonType" value="{{thePokemon.type}}">
+</div>
+
+
+<div>
+    Evolves?:
+    {{#if thePokemon.evolves}}
+    <input id="evolves" type="radio" value=true name="evolves" checked=true>
+    <label for="evolves">Yes</label>
+    <input id="no-evolve" type="radio" value=false name="evolves">
+    <label for="no-evolve">No</label>
+    {{else}}
+    <input id="evolves" type="radio" value=true name="evolves">
+    <label for="evolves">Yes</label>
+    <input id="no-evolve" type="radio" value=false name="evolves" checked=true>
+    <label for="no-evolve">No</label>
+    {{/if}}
+
+</div>
+
+<div>
+    Moves: 
+    {{#each thePokemon.moves}}
+    <input type="text" name="moves" value="{{this}}">
+    {{/each}}
+</div>
+
+
+<a href="#" id="uploadNew">Click Here to Upload a New Image for this Pokemon</a>
+<div id="imgInput">
+    Image: 
+    <input type="file" name="img">
+</div>
+
+
+
+<button>Save</button>
+
+
+</form>
+
+
+<script src="/js/editPokemon.js"></script>

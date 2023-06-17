@@ -1,0 +1,59 @@
+<h1>Pokemon Details</h1>
+
+
+<h2>{{thePokemon.name}}</h2>
+<h3>Type: {{thePokemon.type}}</h3>
+<p>Evolves? {{thePokemon.evolves}}</p>
+
+{{#if trainer}}
+<div>
+    Trainer: {{trainer}}
+</div>
+{{else}}
+<div>This Pokemon Is Wild</div>
+{{/if}}
+
+
+<img src="{{thePokemon.img}}" style="width: 300px">
+
+<hr>
+<h4>Moves</h4>
+{{#each thePokemon.moves}}
+    <p>
+        {{this}}
+    </p>    
+{{/each}}
+<hr>
+
+
+<br>
+
+{{#if user}}
+{{#unless thePokemon.adopted}}
+    <form action="/pokemon/adopt/{{thePokemon._id}}" method="POST">
+        <button>Adopt This Pokemon</button>
+    </form>
+{{/unless}}
+{{/if}}
+
+<br><br>
+
+
+{{#if isMyPokemon}}
+    <a href="/pokemon/{{thePokemon._id}}/edit">Edit This Pokemon</a>
+
+    <br><br><br>
+
+    <form action="/pokemon/delete/{{thePokemon._id}}" method="POST">
+        <button>Delete This Pokemon</button>
+    </form>
+{{/if}}
+{{#if isAdmin}}
+    <a href="/pokemon/{{thePokemon._id}}/edit">Edit This Pokemon</a>
+
+    <br><br><br>
+
+    <form action="/pokemon/delete/{{thePokemon._id}}" method="POST">
+        <button>Delete This Pokemon</button>
+    </form>
+{{/if}}
